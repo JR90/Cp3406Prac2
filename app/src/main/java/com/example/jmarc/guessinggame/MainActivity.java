@@ -5,15 +5,14 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView statusText;
     private EditText guessField;
-
     private int secretNumber = 3;
 
     @Override
@@ -46,7 +45,14 @@ public class MainActivity extends AppCompatActivity {
                     if (value == secretNumber) {
                         statusText.setText("you won");
                     }
-                } catch (Exception e) {
+                    if (value <1){
+                        statusText.setText("guess higher");
+                    }
+                    if (value >10) {
+                        statusText.setText("Guess Lower");
+                    }
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
 
                 }
 

@@ -11,33 +11,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.jmarc.guessinggame.MainActivity">
 
-        <LinearLayout
-            android:orientation="horizontal"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guess: "/>
+
+
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Guess:"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-            <EditText
-                android:inputType="number"
-                android:id="@+id/guessField"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/guessField"
+            android:inputType="number" />
 
 
-        </LinearLayout>
 
+    </LinearLayout>
     <TextView
-        android:id="@+id/statusText"
+        android:text="Status..."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="status..."
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:id="@+id/statusText" />
 
+    <Button
+        android:text="Next Activity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button" />
 
 
 
