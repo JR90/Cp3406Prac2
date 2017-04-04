@@ -7,17 +7,22 @@ import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView statusText;
     private EditText guessField;
 
-    private final static  int secretNumber = 3;
+    private int secretNumber = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Random random = new Random();
+        secretNumber = 1 + random.nextInt(10); // 1 to 10 random value
 
 
         statusText = (TextView) findViewById(R.id.statusText);
@@ -35,10 +40,14 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence string, int start, int before, int count) {
 //                method is when user types something in this method changes
 
-                int value = Integer.parseInt(string.toString());
+                try {
+                    int value = Integer.parseInt(string.toString());
 
-                if (value == secretNumber) {
-                    statusText.setText("you won");
+                    if (value == secretNumber) {
+                        statusText.setText("you won");
+                    }
+                } catch (Exception e) {
+
                 }
 
                 statusText.setText(string);
@@ -47,10 +56,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                System.out.println("done");
             }
         });
-
 
     }
 }
